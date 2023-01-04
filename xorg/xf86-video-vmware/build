@@ -1,1 +1,8 @@
+#!/bin/sh -e
 
+patch -p1 < line-fix.patch
+
+./configure --prefix=/usr
+
+make PREFIX=/usr DESTDIR="$1"
+make PREFIX=/usr DESTDIR="$1" install
